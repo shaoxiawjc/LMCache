@@ -282,6 +282,10 @@ class DiskCacheMetadata:
         Check if the disk cache can be evicted.
         """
         return not self.is_pinned
+    
+    def get_num_tokens(self) -> int:
+        token_dim = self.fmt.token_dim()
+        return self.shape[token_dim]
 
 
 TORCH_DTYPE_TO_STR_DTYPE = {
